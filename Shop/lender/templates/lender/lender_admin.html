@@ -7,8 +7,8 @@
         <h1 class="title">Lender admin - {{ lender.name }}</h1>
 
         
-        <strong>My balance: </strong>${{ lender.get_balance }}<br>
-        <strong>My paid amount: </strong>${{ lender.get_paid_amount }}
+        <strong>My balance: </strong>£{{ lender.get_balance }}<br>
+        <strong>My paid amount: </strong>£{{ lender.get_paid_amount }}
 
         <hr>
 
@@ -33,7 +33,7 @@
                     {% for product in products %}
                         <tr>
                             <td><a href="{% url 'product' product.category.slug product.slug %}">{{ product.title }}</a></td>
-                            <td>${{ product.price }}</td>
+                            <td>£{{ product.price }}</td>
                         </tr>
                     {% endfor %}
                 </tbody>
@@ -78,10 +78,10 @@
                                         {% if item.lender == request.user.lender %}
                                             <tr>
                                                 <td>{{ item.product.title }}</td>
-                                                <td>${{ item.product.price }}</td>
+                                                <td>£{{ item.product.price }}</td>
                                                 <td>{{ item.quantity }}</td>
                                                 <td>{{ item.lender_paid|yesno:"Yes,No" }}</td>
-                                                <td>${{ item.get_total_price }}</td>
+                                                <td>£{{ item.get_total_price }}</td>
                                             </tr>
                                         {% endif %}
                                     {% endfor %}
