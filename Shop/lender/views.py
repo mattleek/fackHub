@@ -1,6 +1,6 @@
 from django.contrib.auth import login
 from django.contrib.auth.decorators import login_required
-from django.contrib.auth.forms import UserCreationForm
+from . forms import UserRegisterForm
 from django.utils.text import slugify
 from django.shortcuts import render, redirect
 
@@ -11,7 +11,7 @@ from .forms import ProductForm
 
 def become_lender(request):
     if request.method == 'POST':
-        form = UserCreationForm(request.POST)
+        form = UserRegisterForm(request.POST)
 
         if form.is_valid():
             user = form.save()
@@ -22,7 +22,7 @@ def become_lender(request):
 
             return redirect('frontpage')
     else:
-        form = UserCreationForm()
+        form = UserRegisterForm()
 
     return render(request, 'lender/become_lender.html', {'form': form})
 
