@@ -2,26 +2,23 @@
 
 {% block title %}Become a lender | {% endblock %}
 
+{% load crispy_forms_tags %}
 {% block content %}
-    <h1 class="title">Become lender</h1>
-
-    <form method="post" action=".">
-        {% csrf_token %}
-
-        {{ form.as_p }}
-
-        <div class="field">
-            <div class="control">
-                <button class="button is-dark is-uppercase">Sign up</button>
-            </div>
-        </div>
-    </form>
-
-    <hr>
-
-    <h2 class="subtitle">Already have an account?</h2>
-    <a href="{% url 'login' %}">Log in</a>
-
-
-  
-{% endblock %}
+<div class="content-section">
+  <form method="POST">
+    {% csrf_token %}
+    <fieldset class="form-group">
+      <legend class="border-bottom mb-4">Register</legend>
+      {{ form|crispy }}
+    </fieldset>
+    <div class="form-group">
+      <button class="btn btn-outline-info" type="submit">Go</button>
+    </div>
+  </form>
+  <div class="border-top pt-3">
+    <small class="text-muted">
+      Already have and acound with us? <a href="{% url 'login' %} " class="ml-2">Click Here</a>
+    </small>
+  </div>
+</div>
+{% endblock content %} 

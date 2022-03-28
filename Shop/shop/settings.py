@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-i^38d4!l#nrpo2d147otql1_d&!$h02yglhzu#9*2c%4$ptc%@
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 STRIPE_PUB_KEY = 'pk_test_51KfwK8HDPp44f3qVe5P2BzNOk22Wd0xIJzIwTHIGQ9QyHkXp2KKTa6sAgMivHF14zlxuEDuBv8nPuPTtZsy0Mvc600khTV4ce0'
 STRIPE_SECRET_KEY = 'sk_test_51KfwK8HDPp44f3qV9yDftjeNhZ6cMtmBvdG4YLeytK5H9agjSqcuxBYXaRGnygX6EEpCLDacbO9w9jB1bJz2hnSC00juGI6Z6C'
@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'product.apps.ProductConfig',
     'cart.apps.CartConfig',
     'order.apps.OrderConfig',
+    'crispy_forms',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
